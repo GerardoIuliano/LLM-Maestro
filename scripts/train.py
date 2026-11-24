@@ -1,20 +1,26 @@
 import glob
-import os, json, argparse, random
-from typing import Dict, List, Any
+import hashlib
+import os
+import argparse
+import random
+from pathlib import Path
 from datasets import load_dataset, Dataset, DatasetDict
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoTokenizer
 from trl import SFTTrainer, SFTConfig
 from peft import LoraConfig
 import torch
-import xml.etree.ElementTree as ET
-from lxml import etree
 import yaml
 
-import xml.etree.ElementTree as ET
-from typing import Optional, Dict, Any
-import re
-
-from lxml import etree
+if __package__:
+    from .sft_common import (
+        codellama_user_message, load_base_model, load_jsonl, load_swc_evaluation_split,
+        resolve_swc_config, save_swc_run_config,
+    )
+else:
+    from sft_common import (
+        codellama_user_message, load_base_model, load_jsonl, load_swc_evaluation_split,
+        resolve_swc_config, save_swc_run_config,
+    )
 
 # -----
 # Main
@@ -22,10 +28,57 @@ from lxml import etree
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--cfg", default="config/lora-codellama13b.yaml")
+    p.add_argument("--swc", help="Target category for an SWC config")
     p.add_argument("--jsonl_path", default="")
+    p.add_argument("--validation-jsonl-path", help="Predefined SWC validation JSONL (overrides the config)")
     args = p.parse_args()
 
-    cfg = yaml.safe_load(open(args.cfg))
+    with open(args.cfg, encoding="utf-8") as source:
+        try:
+            cfg = resolve_swc_config(yaml.safe_load(source), args.swc)
+        except ValueError as error:
+            p.error(str(error))
+    swc = cfg.get("swc")
+    if swc:
+        train_path = args.jsonl_path or cfg.get("train_jsonl_path")
+        validation_path = args.validation_jsonl_path or cfg.get("validation_jsonl_path")
+        if not train_path or not validation_path:
+            p.error("SWC training requires separate train and validation JSONL files")
+        if Path(train_path).resolve() == Path(validation_path).resolve():
+            p.error("Train and validation must use different files")
+        train_digest = hashlib.sha256()
+        validation_digest = hashlib.sha256()
+        train = load_jsonl(train_path, digest=train_digest)
+        validation = load_swc_evaluation_split(validation_path, swc, digest=validation_digest)
+        cfg = dict(
+            cfg,
+            train_jsonl_path=train_path,
+            validation_jsonl_path=validation_path,
+            dataset_sha256={
+                "train": train_digest.hexdigest(),
+                "validation": validation_digest.hexdigest(),
+            },
+        )
+        # SFTTrainer needs one completion per row to report validation loss.
+        ds = DatasetDict({
+            "train": Dataset.from_list(train),
+            "validation": Dataset.from_list([
+                {"system": row["system"], "user": row["user"], "assistant": label}
+                for row in validation
+                for label in row["valid_answers"]
+            ]),
+        })
+    else:
+        if args.validation_jsonl_path:
+            p.error("--validation-jsonl-path requires an SWC config")
+        if args.jsonl_path:
+            data = Dataset.from_list(load_jsonl(args.jsonl_path))
+        else:
+            data = load_dataset(cfg["hf_dataset_repo"], split="train")
+        split = data.train_test_split(test_size=cfg.get("val_split_ratio", 0.1), seed=cfg["seed"])
+        ds = DatasetDict({"train": split["train"], "validation": split["test"]})
+    print(f"Dataset rows: {len(ds['train'])} train, {len(ds['validation'])} validation loss")
+
     random.seed(cfg["seed"]); torch.manual_seed(cfg["seed"])
 
     tok = AutoTokenizer.from_pretrained(cfg["base_model"], use_fast=True)
@@ -33,56 +86,23 @@ def main():
         tok.pad_token = tok.eos_token
     tok.padding_side = "right"
 
-    # Template single-turn compatibile con assistant_only_loss
+    # SWC completions learn to terminate directly after the detector name.
+    assistant_template = (
+        "{% generation %}{{ m['content'] }}{{ eos_token }}{% endgeneration %}"
+        if swc else "{% generation %}{{ m['content'] }}{% endgeneration %}{{ eos_token }}"
+    )
     tok.chat_template = (
         "{{ bos_token }}"
         "{% for m in messages %}"
         "{% if m['role'] == 'user' %}"
         "[INST] {{ m['content'] }} [/INST]"
         "{% elif m['role'] == 'assistant' %}"
-        "{% generation %}{{ m['content'] }}{% endgeneration %}{{ eos_token }}"
-        "{% endif %}"
+        + assistant_template
+        + "{% endif %}"
         "{% endfor %}"
     )
 
-    from transformers import BitsAndBytesConfig
-
-    use_4bit = bool(cfg.get("load_in_4bit", False))
-    dtype = torch.bfloat16 if str(cfg.get("torch_dtype", "bfloat16")) == "bfloat16" else torch.float16
-
-    bnb_config = None
-    if use_4bit:
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type=cfg.get("bnb_4bit_quant_type", "nf4"),
-            bnb_4bit_use_double_quant=cfg.get("bnb_4bit_use_double_quant", True),
-            bnb_4bit_compute_dtype=torch.bfloat16 if str(
-                cfg.get("bnb_4bit_compute_dtype", "bfloat16")) == "bfloat16" else torch.float16,
-        )
-
-    model = AutoModelForCausalLM.from_pretrained(
-        cfg["base_model"],
-        torch_dtype=dtype if not use_4bit else None,
-        quantization_config=bnb_config if use_4bit else None,
-        device_map="auto" if use_4bit else None,  # utile con 4-bit
-    )
-    model.config.pad_token_id = tok.pad_token_id
-    if cfg.get("gradient_checkpointing", False):
-        model.config.use_cache = False
-
-    # Dataset
-    if args.jsonl_path:
-        rows = [json.loads(line) for line in open(args.jsonl_path, "r", encoding="utf-8")]
-        ds = Dataset.from_list(rows)
-    else:
-        ds = load_dataset(cfg["hf_dataset_repo"], split="train")
-
-    print(f"Numero totale di record nel dataset: {len(ds)}")
-
-    ds = ds.train_test_split(test_size=cfg.get("val_split_ratio", 0.1), seed=cfg["seed"])
-    ds = DatasetDict({"train": ds["train"], "validation": ds["test"]})
-
-    stop_seq = cfg["stop_sequence"]
+    stop_seq = None if swc else cfg["stop_sequence"]
 
     peft_cfg = LoraConfig(
         r=cfg["lora_r"],
@@ -94,28 +114,24 @@ def main():
     )
 
     def to_messages(ex):
-        system = ex["system"].strip()
-        user = ex["user"].strip()
         assistant = ex["assistant"].strip()
-        if not assistant.endswith(stop_seq):
+        if stop_seq and not assistant.endswith(stop_seq):
             assistant += stop_seq
-
-        # fondi il system nel primo user (stile CodeLlama)
-        user_with_sys = f"<<SYS>>\n{system}\n<</SYS>>\n\n{user}"
 
         return {
             "messages": [
-                {"role": "user", "content": user_with_sys},
+                codellama_user_message(ex),
                 {"role": "assistant", "content": assistant},
             ]
         }
 
-    ds = ds.map(to_messages)
-
-    #print("Numero di token per record (split train):")
-    #for i, ex in enumerate(ds["train"]):
-    #    tokens = tok.apply_chat_template(ex["messages"], tokenize=True, add_generation_prompt=False)
-    #    print(f"Record {i}: {len(tokens)} token")
+    if swc:
+        ds = DatasetDict({
+            split: dataset.map(to_messages, remove_columns=dataset.column_names)
+            for split, dataset in ds.items()
+        })
+    else:
+        ds = ds.map(to_messages)
 
     def _ok_len(batch):
         return [
@@ -124,7 +140,25 @@ def main():
             for msgs in batch["messages"]
         ]
 
-    ds["train"] = ds["train"].filter(_ok_len, batched=True)
+    if swc:
+        for split, dataset in ds.items():
+            fitting = dataset.filter(_ok_len, batched=True)
+            if len(fitting) != len(dataset):
+                raise ValueError(f"{split}: {len(dataset) - len(fitting)} rows exceed max_length={cfg['max_length']}")
+    else:
+        ds["train"] = ds["train"].filter(_ok_len, batched=True)
+
+    if swc:
+        try:
+            snapshot_path = save_swc_run_config(cfg)
+        except ValueError as error:
+            p.error(str(error))
+        print(f"Training configuration saved to {snapshot_path}")
+
+    model = load_base_model(cfg)
+    model.config.pad_token_id = tok.pad_token_id
+    if cfg.get("gradient_checkpointing", False):
+        model.config.use_cache = False
 
     sft_cfg = SFTConfig(
         max_length=cfg["max_length"],

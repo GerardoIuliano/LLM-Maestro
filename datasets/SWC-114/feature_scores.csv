@@ -1,0 +1,184 @@
+feature,selected,rfecv_ranking,final_model_importance
+length of base_contract,True,1,0.02971979755650033
+length of contract_name,True,1,0.022085786990852466
+Opcode Count Features_PUSH18,True,1,0.018156245973909378
+Number of comment_lines,True,1,0.017999214222312102
+Solidity call,True,1,0.01754570206850729
+Opcode Count Features_GT,True,1,0.017376205002606913
+AST Features_ast_len_exportedSymbols,True,1,0.01654938691348642
+Number of total_lines,True,1,0.016418833346817048
+Bytecode Character Count_a,True,1,0.01602234717025876
+Opcode Count Features_PUSH5,True,1,0.01582722040539847
+Opcode Count Features_NUMBER,True,1,0.015793989915884207
+Opcode Count Features_GAS,True,1,0.01526436355090247
+AST Features_ast_len_nodes,True,1,0.014333410787932403
+Bytecode Length and Entropy_bytecode_entropy,True,1,0.014299713869072125
+Number of blank_lines,True,1,0.014004225174156885
+Opcode Count Features_LOG1,True,1,0.013710619444642153
+Number of code_lines,True,1,0.013218222776590901
+Duplicate Lines Count,True,1,0.012952583606892418
+AST Features_ast_id,True,1,0.01183562041465693
+Bytecode Character Count_c,True,1,0.011749758448279017
+Opcode Count Features_BALANCE,True,1,0.01165323762983023
+Opcode Count Features_SGT,True,1,0.011584713778592746
+Opcode Count Features_SHR,True,1,0.01106146336324779
+Opcode Count Features_STATICCALL,True,1,0.011034151314686888
+Bytecode Character Count_d,True,1,0.010923477411539342
+Opcode Count Features_PUSH29,True,1,0.010847888200762002
+Opcode Count Features_DUP9,True,1,0.010789771651258304
+Bytecode Character Count_b,True,1,0.01075018456384127
+Opcode Count Features_LT,True,1,0.01045429286145628
+ABI Features_len_non_zero_output,True,1,0.010385012489836113
+Bytecode Character Count_f,True,1,0.010121877446451702
+Bytecode Character Count_e,True,1,0.010039342183800839
+Bytecode Character Count_5,True,1,0.010018778754740313
+Bytecode Character Count_4,True,1,0.009964783027727915
+Bytecode Character Count_2,True,1,0.009838739323572128
+Bytecode Character Count_1,True,1,0.009512125156865503
+Opcode Count Features_SLOAD,True,1,0.009409564373676883
+Bytecode Character Count_8,True,1,0.009384815033614073
+Bytecode Character Count_3,True,1,0.00937591756968922
+Solidity callcode,True,1,0.009360677588844207
+Opcode Count Features_MUL,True,1,0.009191929810783168
+ABI Features_len_non_zero_input,True,1,0.008963596518165895
+Opcode Count Features_SWAP4,True,1,0.00895512578425355
+Opcode Count Features_PUSH4,True,1,0.00894871039336778
+ABI Features_len_list_input,True,1,0.008879993194228115
+Opcode Count Features_SWAP7,True,1,0.008848805832723353
+Bytecode Character Count_6,True,1,0.008716337131606671
+Bytecode Character Count_9,True,1,0.008583908550965485
+ABI Features_len_list_name,True,1,0.008540211924279933
+Opcode Count Features_AND,True,1,0.008499153612785896
+Bytecode Character Count_7,True,1,0.008426122965775447
+Solidity transfer,True,1,0.008392584803799561
+Opcode Count Features_CALL,True,1,0.008376769561240206
+Opcode Count Features_PUSH23,True,1,0.008296130446824621
+Opcode Count Features_RETURNDATACOPY,True,1,0.00816169792213022
+ABI Features_len_list_payable,True,1,0.007953438054814197
+Opcode Count Features_COINBASE,True,1,0.007937046378096752
+Functional Features_0,True,1,0.00791291887444494
+Opcode Count Features_LOG4,True,1,0.007859888839108813
+Opcode Count Features_EXP,True,1,0.0077264821623941006
+ABI Features_len_list_constant,True,1,0.0076525244948285566
+ABI Features_len_list_type,True,1,0.007573882519060149
+Opcode Count Features_PUSH32,True,1,0.007555037350012173
+ABI Features_len_list_output,True,1,0.00752143459434327
+ABI Features_len_zero_input,True,1,0.007475970668322723
+Opcode Count Features_JUMPI,True,1,0.007306595424202756
+Opcode Count Features_PUSH26,True,1,0.007197384413344534
+Functional Features_1,True,1,0.007194568143027245
+Opcode Count Features_SWAP15,True,1,0.007099149663616096
+Opcode Count Features_REVERT,True,1,0.006878071455269729
+Event Count,True,1,0.006726423944232316
+Opcode Count Features_CODESIZE,True,1,0.006716718649237103
+Opcode Count Features_MSTORE8,True,1,0.006696634654222473
+Opcode Count Features_PUSH15,True,1,0.006673688533391532
+Opcode Count Features_DUP10,True,1,0.006657790561658883
+Opcode Count Features_POP,True,1,0.006494018330119684
+Opcode Count Features_DELEGATECALL,True,1,0.0064672305618715875
+Opcode Count Features_ADD,True,1,0.006367073588363276
+Opcode Count Features_PUSH9,True,1,0.006326705943070229
+Opcode Count Features_PUSH11,True,1,0.00626728009821924
+Opcode Count Features_SWAP5,True,1,0.006247862584585946
+Opcode Count Features_DIV,True,1,0.006195132491588961
+Opcode Count Features_TIMESTAMP,True,1,0.006027521854753779
+Opcode Count Features_DUP1,True,1,0.006023274396590142
+Opcode Count Features_PC,True,1,0.0059794037752009385
+Opcode Count Features_SWAP2,True,1,0.005950042535747235
+ABI Features_len_list_stateMut,True,1,0.005929272484664068
+Opcode Count Features_PUSH2,True,1,0.005889111510338393
+Opcode Count Features_OR,True,1,0.005825102809320024
+Solidity send,True,1,0.00575580035172511
+Opcode Count Features_DUP3,True,1,0.005753422982431212
+Opcode Count Features_DUP2,True,1,0.005733702423719402
+Opcode Count Features_RETURNDATASIZE,True,1,0.005727363652763725
+Opcode Count Features_DUP4,True,1,0.005675713371934356
+Opcode Count Features_ORIGIN,True,1,0.0056183785157855924
+Opcode Count Features_DUP16,True,1,0.005522436520004551
+Opcode Count Features_LOG2,True,1,0.005381771693845274
+Opcode Count Features_PUSH20,True,1,0.005306591611362549
+Opcode Count Features_SWAP3,True,1,0.005234113959861756
+Opcode Count Features_ADDRESS,True,1,0.005233423657562142
+Opcode Count Features_PUSH24,True,1,0.005066502437669752
+Opcode Count Features_EQ,True,1,0.0049502260953899185
+Opcode Count Features_PUSH17,True,1,0.00448216984611093
+Opcode Count Features_DUP5,True,1,0.004416975929839749
+Opcode Count Features_JUMP,True,1,0.004178461348183433
+Opcode Count Features_NOT,True,1,0.004142438928218964
+Opcode Count Features_DUP14,True,1,0.004080671772045596
+Opcode Count Features_MSIZE,True,1,0.004044743181394557
+Opcode Count Features_MLOAD,True,1,0.0039962902777068215
+Opcode Count Features_DUP13,True,1,0.003477277661868645
+Opcode Count Features_PUSH27,True,1,0.002761701621891871
+ABI Features_len_zero_output,False,2,
+Bytecode Length and Entropy_bytecode_len,False,2,
+Opcode Count Features_BYTE,False,2,
+Opcode Count Features_CALLDATACOPY,False,2,
+Opcode Count Features_CALLDATALOAD,False,2,
+Opcode Count Features_CALLDATASIZE,False,2,
+Opcode Count Features_CALLER,False,2,
+Opcode Count Features_CALLVALUE,False,2,
+Opcode Count Features_DUP11,False,2,
+Opcode Count Features_DUP6,False,2,
+Opcode Count Features_DUP7,False,2,
+Opcode Count Features_DUP8,False,2,
+Opcode Count Features_EXTCODESIZE,False,2,
+Opcode Count Features_INVALID,False,2,
+Opcode Count Features_ISZERO,False,2,
+Opcode Count Features_JUMPDEST,False,2,
+Opcode Count Features_LOG3,False,2,
+Opcode Count Features_MOD,False,2,
+Opcode Count Features_MSTORE,False,2,
+Opcode Count Features_PUSH1,False,2,
+Opcode Count Features_PUSH21,False,2,
+Opcode Count Features_PUSH25,False,2,
+Opcode Count Features_PUSH3,False,2,
+Opcode Count Features_PUSH6,False,2,
+Opcode Count Features_PUSH8,False,2,
+Opcode Count Features_RETURN,False,2,
+Opcode Count Features_SELFDESTRUCT,False,2,
+Opcode Count Features_SLT,False,2,
+Opcode Count Features_SMOD,False,2,
+Opcode Count Features_SSTORE,False,2,
+Opcode Count Features_STOP,False,2,
+Opcode Count Features_SUB,False,2,
+Opcode Count Features_SWAP1,False,2,
+Opcode Count Features_SWAP11,False,2,
+Opcode Count Features_SWAP16,False,2,
+Opcode Count Features_SWAP6,False,2,
+Opcode Count Features_ADDMOD,False,3,
+Opcode Count Features_BLOCKHASH,False,3,
+Opcode Count Features_CALLCODE,False,3,
+Opcode Count Features_CODECOPY,False,3,
+Opcode Count Features_CREATE,False,3,
+Opcode Count Features_DIFFICULTY,False,3,
+Opcode Count Features_DUP12,False,3,
+Opcode Count Features_DUP15,False,3,
+Opcode Count Features_EXTCODECOPY,False,3,
+Opcode Count Features_GASLIMIT,False,3,
+Opcode Count Features_GASPRICE,False,3,
+Opcode Count Features_LOG0,False,3,
+Opcode Count Features_MULMOD,False,3,
+Opcode Count Features_PUSH10,False,3,
+Opcode Count Features_PUSH12,False,3,
+Opcode Count Features_PUSH13,False,3,
+Opcode Count Features_PUSH14,False,3,
+Opcode Count Features_PUSH16,False,3,
+Opcode Count Features_PUSH19,False,3,
+Opcode Count Features_PUSH22,False,3,
+Opcode Count Features_PUSH28,False,3,
+Opcode Count Features_PUSH30,False,3,
+Opcode Count Features_PUSH31,False,3,
+Opcode Count Features_PUSH7,False,3,
+Opcode Count Features_SAR,False,3,
+Opcode Count Features_SDIV,False,3,
+Opcode Count Features_SHA3,False,3,
+Opcode Count Features_SHL,False,3,
+Opcode Count Features_SIGNEXTEND,False,3,
+Opcode Count Features_SWAP10,False,3,
+Opcode Count Features_SWAP12,False,3,
+Opcode Count Features_SWAP13,False,3,
+Opcode Count Features_SWAP14,False,3,
+Opcode Count Features_SWAP8,False,3,
+Opcode Count Features_SWAP9,False,3,
+Opcode Count Features_XOR,False,3,

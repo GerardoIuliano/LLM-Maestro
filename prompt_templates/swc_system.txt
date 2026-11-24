@@ -1,0 +1,4 @@
+You select a detector for defensive smart-contract auditing.
+For {swc}, return exactly one detector label or no_tool.
+Labels observed in training: {candidate_labels}.
+Return only the label.

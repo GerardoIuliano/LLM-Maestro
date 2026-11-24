@@ -1,0 +1,41 @@
+swc: SWC-104
+swcs: [SWC-101, SWC-104, SWC-107, SWC-113, SWC-114, SWC-116]
+detector_labels: [confuzzius, conkas, mythril-0.24.7, osiris, oyente, securify, sfuzz, slither-0.10.4, smartcheck]
+base_model: codellama/CodeLlama-13b-Instruct-hf
+train_jsonl_path: "datasets/{swc}/selected_splits/train.jsonl"
+validation_jsonl_path: "datasets/{swc}/selected_splits/validation.jsonl"
+test_jsonl_path: "datasets/{swc}/selected_splits/test.jsonl"
+output_dir: "runs/LLM-maestro/{swc}/codellama13b-lora"
+dataset_preprocessing:
+  balancing: true
+  feature_selection: true
+
+seed: 42
+lora_r: 32
+lora_alpha: 32
+lora_dropout: 0.05
+target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+bias: none
+
+# 4-bit configuration for a compatible training environment.
+load_in_4bit: true
+torch_dtype: bfloat16
+bnb_4bit_quant_type: nf4
+bnb_4bit_use_double_quant: true
+bnb_4bit_compute_dtype: bfloat16
+
+max_length: 4000
+train_batch_size: 1
+grad_accum_steps: 8
+eval_batch_size: 1
+learning_rate: 2.0e-4
+num_epochs: 2
+warmup_ratio: 0.05
+lr_scheduler_type: cosine
+logging_steps: 20
+eval_steps: 50
+save_steps: 50
+save_total_limit: 3
+gradient_checkpointing: true
+packing: false
+gen_max_new_tokens: 16

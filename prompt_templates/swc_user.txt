@@ -1,0 +1,2 @@
+Which detector should be selected for {swc} given these contract features?
+{features}

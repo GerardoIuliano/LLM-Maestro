@@ -17,7 +17,7 @@ else:
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
 
-def check_inputs(cfg):
+def check_inputs(cfg, adapters_dir=None):
     if __package__:
         from .eval_maestro_union import DATA_DIR, TARGET_SWCS
     else:
@@ -37,9 +37,21 @@ def check_inputs(cfg):
         raise ValueError(f"Expected the 200 MAESTRO seed-42 reports in {data_dir}")
 
     expected_ids = None
+    adapters = {}
     for swc in swcs:
         settings = resolve_swc_config(cfg, swc)
-        verify_adapter(REPO_ROOT / settings["output_dir"])
+        configured_adapter = Path(settings["output_dir"])
+        adapter = (
+            adapters_dir / swc / configured_adapter.name
+            if adapters_dir is not None else REPO_ROOT / configured_adapter
+        )
+        try:
+            verify_adapter(adapter)
+        except ValueError as error:
+            raise ValueError(
+                f"{error}. Use --adapters-dir to point to the folder containing the trained SWC directories."
+            ) from error
+        adapters[swc] = adapter
         test_path = REPO_ROOT / settings["test_jsonl_path"]
         rows = load_swc_evaluation_split(test_path, swc)
         ids = {row["contractname_safe"] for row in rows}
@@ -48,7 +60,7 @@ def check_inputs(cfg):
         if expected_ids is not None and ids != expected_ids:
             raise ValueError(f"{test_path}: contract IDs differ from the other SWC splits")
         expected_ids = ids
-    return swcs
+    return adapters
 
 
 def run_script(script, *arguments):
@@ -63,6 +75,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cfg", type=Path, default=REPO_ROOT / "config/lora-swc-104.yaml")
     parser.add_argument("--base-model", help="Local directory for the same CodeLlama base model")
+    parser.add_argument("--adapters-dir", type=Path,
+                        help="Folder containing the trained SWC-101, SWC-104, and other SWC directories")
     parser.add_argument("--output-dir", type=Path, default=REPO_ROOT / "runs/LLM-maestro/test_pipeline",
                         help="New directory for all outputs from this run")
     args = parser.parse_args()
@@ -74,7 +88,8 @@ def main():
     stage = "Preflight"
     try:
         with config_path.open(encoding="utf-8") as source:
-            swcs = check_inputs(yaml.safe_load(source))
+            adapters_dir = args.adapters_dir.resolve() if args.adapters_dir else None
+            adapters = check_inputs(yaml.safe_load(source), adapters_dir)
         base_args = ["--base-model", args.base_model] if args.base_model else []
         if args.base_model and not Path(args.base_model).is_dir():
             raise ValueError(f"Local base model directory does not exist: {args.base_model}")
@@ -83,12 +98,12 @@ def main():
 
         output_dir.mkdir(parents=True, exist_ok=False)
         prediction_args = []
-        for index, swc in enumerate(swcs, start=1):
+        for index, (swc, adapter) in enumerate(adapters.items(), start=1):
             stage = f"Inference for {swc}"
-            print(f"[{index}/{len(swcs)}] {stage}", flush=True)
+            print(f"[{index}/{len(adapters)}] {stage}", flush=True)
             swc_output = output_dir / "predictions" / swc
             run_script("eval_swc.py", "--cfg", config_path, "--swc", swc, "--split", "test",
-                       "--output-dir", swc_output, *base_args)
+                       "--adapter", adapter, "--output-dir", swc_output, *base_args)
             prediction_args.extend(["--prediction-file", f"{swc}={swc_output / 'predictions.jsonl'}"])
 
         stage = "Merge test predictions"

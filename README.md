@@ -158,7 +158,9 @@ tool suites against the MAESTRO seed-42 baseline. Its comparison is saved in
 Use `--base-model "D:\models\CodeLlama-13b-Instruct-hf"` if the same model is stored
 in a local directory outside the Hugging Face cache. Use `--output-dir` with a
 new directory for a separate run. The adapter directories and archive in
-`runs/LLM-maestro` stay local to each machine.
+`runs/LLM-maestro` stay local to each machine. If you trained in another checkout,
+pass `--adapters-dir` with the path to its `runs/LLM-maestro` folder, which contains
+the `SWC-101`, `SWC-104`, and other SWC directories.
 
 To run the stages separately, merge the predictions once the six evaluations
 are complete:

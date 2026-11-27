@@ -1,0 +1,986 @@
+[
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "confuzzius",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-114": 0,
+      "SWC-120": 0,
+      "SWC-124": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-114": 0,
+      "SWC-120": 0,
+      "SWC-124": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "conkas",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-104": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-4": 0,
+      "DASP-7": 0,
+      "DASP-8": 1
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "maian",
+    "findings_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "findings_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "mythril-0.24.7",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-113": 0,
+      "SWC-114": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-123": 0,
+      "SWC-124": 0,
+      "SWC-127": 0,
+      "SWC-132": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-113": 0,
+      "SWC-114": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-123": 0,
+      "SWC-124": 0,
+      "SWC-127": 0,
+      "SWC-132": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "osiris",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "oyente",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "securify",
+    "findings_SWC": {
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-107": 1,
+      "SWC-114": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-107": 0,
+      "SWC-114": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 1,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "semgrep",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "sfuzz",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 1,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 1,
+      "SWC-120": 0,
+      "SWC-134": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-134": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 1,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 1
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "confuzzius",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-114": 0,
+      "SWC-120": 0,
+      "SWC-124": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-114": 0,
+      "SWC-120": 0,
+      "SWC-124": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "conkas",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-104": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-4": 0,
+      "DASP-7": 0,
+      "DASP-8": 1
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "maian",
+    "findings_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "findings_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "mythril-0.24.7",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-113": 0,
+      "SWC-114": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-123": 0,
+      "SWC-124": 0,
+      "SWC-127": 0,
+      "SWC-132": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-113": 0,
+      "SWC-114": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-123": 0,
+      "SWC-124": 0,
+      "SWC-127": 0,
+      "SWC-132": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "osiris",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "oyente",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "securify",
+    "findings_SWC": {
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-107": 1,
+      "SWC-114": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-107": 0,
+      "SWC-114": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 1,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "semgrep",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "sfuzz",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 1,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 1,
+      "SWC-120": 0,
+      "SWC-134": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-134": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 1,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 1
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "confuzzius",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-114": 0,
+      "SWC-120": 0,
+      "SWC-124": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-114": 0,
+      "SWC-120": 0,
+      "SWC-124": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "conkas",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-104": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-4": 0,
+      "DASP-7": 0,
+      "DASP-8": 1
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "maian",
+    "findings_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "findings_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "mythril-0.24.7",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-113": 0,
+      "SWC-114": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-123": 0,
+      "SWC-124": 0,
+      "SWC-127": 0,
+      "SWC-132": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-110": 0,
+      "SWC-112": 0,
+      "SWC-113": 0,
+      "SWC-114": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-123": 0,
+      "SWC-124": 0,
+      "SWC-127": 0,
+      "SWC-132": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "osiris",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "oyente",
+    "findings_SWC": {
+      "SWC-101": 1,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-107": 0,
+      "SWC-114": 0,
+      "SWC-116": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 1,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-3": 0,
+      "DASP-5": 0,
+      "DASP-7": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "securify",
+    "findings_SWC": {
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-107": 1,
+      "SWC-114": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-107": 0,
+      "SWC-114": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 1,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-7": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "semgrep",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    }
+  },
+  {
+    "contract_index": "EtherShipsCore_0x14a3.sol",
+    "tool": "sfuzz",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 1,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 1,
+      "SWC-120": 0,
+      "SWC-134": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-134": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 1,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 1
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 0
+    }
+  }
+]

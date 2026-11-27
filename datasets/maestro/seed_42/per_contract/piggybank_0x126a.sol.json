@@ -1,0 +1,188 @@
+[
+  {
+    "contract_index": "PiggyBank_0x126a.sol",
+    "tool": "maian",
+    "findings_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-105": 0,
+      "SWC-106": 0
+    },
+    "findings_DASP": {
+      "DASP-2": 1,
+      "DASP-5": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-2": 0,
+      "DASP-5": 0
+    }
+  },
+  {
+    "contract_index": "PiggyBank_0x126a.sol",
+    "tool": "semgrep",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 0,
+      "SWC-133": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-112": 0,
+      "SWC-117": 0,
+      "SWC-124": 0,
+      "SWC-130": 0,
+      "SWC-132": 1,
+      "SWC-133": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-10": 0
+    }
+  },
+  {
+    "contract_index": "PiggyBank_0x126a.sol",
+    "tool": "sfuzz",
+    "findings_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-134": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-101": 0,
+      "SWC-104": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-116": 0,
+      "SWC-120": 0,
+      "SWC-134": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-6": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "PiggyBank_0x126a.sol",
+    "tool": "slither-0.10.4",
+    "findings_SWC": {
+      "SWC-102": 1,
+      "SWC-103": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 1,
+      "SWC-107": 0,
+      "SWC-109": 0,
+      "SWC-113": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-119": 0,
+      "SWC-131": 1
+    },
+    "ground_truth_SWC": {
+      "SWC-102": 0,
+      "SWC-103": 0,
+      "SWC-104": 0,
+      "SWC-105": 0,
+      "SWC-106": 0,
+      "SWC-107": 0,
+      "SWC-109": 0,
+      "SWC-113": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-119": 0,
+      "SWC-131": 0
+    },
+    "findings_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 1,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-1": 0,
+      "DASP-2": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-8": 0
+    }
+  },
+  {
+    "contract_index": "PiggyBank_0x126a.sol",
+    "tool": "smartcheck",
+    "findings_SWC": {
+      "SWC-100": 0,
+      "SWC-101": 0,
+      "SWC-103": 1,
+      "SWC-104": 0,
+      "SWC-111": 0,
+      "SWC-113": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-132": 0
+    },
+    "ground_truth_SWC": {
+      "SWC-100": 0,
+      "SWC-101": 0,
+      "SWC-103": 0,
+      "SWC-104": 0,
+      "SWC-111": 0,
+      "SWC-113": 0,
+      "SWC-115": 0,
+      "SWC-116": 0,
+      "SWC-132": 1
+    },
+    "findings_DASP": {
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-8": 0
+    },
+    "ground_truth_DASP": {
+      "DASP-2": 0,
+      "DASP-3": 0,
+      "DASP-4": 0,
+      "DASP-5": 0,
+      "DASP-8": 0
+    }
+  }
+]

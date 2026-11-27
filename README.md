@@ -145,7 +145,24 @@ selected features. Set a different `output_dir` when running a different configu
 or dataset for the same SWC. The saved YAML can be passed to `--cfg` when
 evaluating that adapter.
 
-Once the six evaluations are complete, merge the predictions by contract:
+For an end-to-end test run, use the trained adapter directories and run this
+from the repository root in your inference environment:
+
+```powershell
+python scripts/run_maestro_test.py
+```
+
+The pipeline runs one adapter at a time, merges the predictions and scores the
+tool suites against the MAESTRO seed-42 baseline. Its comparison is saved in
+`runs/LLM-maestro/test_pipeline/evaluation_union/comparison_seed_42.csv`.
+Use `--base-model "D:\models\CodeLlama-13b-Instruct-hf"` if the same model is stored
+in a local directory outside the Hugging Face cache. Use `--output-dir` with a
+new directory for a separate run. The adapter directories and archive in
+`runs/LLM-maestro` stay local to each machine.
+
+To run the stages separately, merge the predictions once the six evaluations
+are complete:
+
 
 ```bash
 python3 scripts/merge_swc_predictions.py --split test
@@ -157,6 +174,20 @@ the union of recognized detector labels. A `no_tool` response contributes no
 detector. Unrecognized responses are recorded in `invalid_predictions`. Use
 `--prediction-file SWC-104=path/to/predictions.jsonl` to merge results from an
 alternative checkpoint, and `--output` to save a separate comparison run.
+
+Score the merged tool suites using MAESTRO's original seed-42 protocol:
+
+```bash
+python3 scripts/eval_maestro_union.py
+```
+
+The scorer reads the original SmartBugs reports for the 200 test contracts and
+the seed-42 MAESTRO baseline in `datasets/maestro/seed_42/`. It takes the union of
+findings from all selected tools for each contract. It reads ground truth from
+the selected tools' report entries, or from all entries when the suite is empty.
+It scores contract–SWC pairs with available ground truth and reports coverage.
+The metrics, per-contract results, and side-by-side seed-42 comparison are saved
+under `runs/LLM-maestro/evaluation_union/`.
 
 ## Key Features
 Parameter-efficient tuning (LoRA/QLoRA) for large-scale models.

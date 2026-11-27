@@ -2,6 +2,7 @@ transformers>=4.56.1,<5
 peft>=0.12
 trl>=0.25.1,<1
 datasets>=2.20
+pandas
 accelerate>=0.33
 bitsandbytes>=0.47
 evaluate~=0.4.5

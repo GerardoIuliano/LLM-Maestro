@@ -48,6 +48,8 @@ def main():
     parser.add_argument("--swc", help="Target category (default: SWC from the config)")
     parser.add_argument("--split", choices=("validation", "test"), default="validation")
     parser.add_argument("--adapter", type=Path, help="Adapter or checkpoint directory (default: config output_dir)")
+    parser.add_argument("--base-model", help="Override the saved model ID with a local base model directory")
+    parser.add_argument("--output-dir", type=Path, help="Write predictions and metrics to this directory")
     args = parser.parse_args()
 
     import yaml
@@ -57,6 +59,8 @@ def main():
             cfg = resolve_swc_config(yaml.safe_load(source), args.swc)
         except ValueError as error:
             parser.error(str(error))
+    if args.base_model:
+        cfg["base_model"] = args.base_model
     swc = cfg.get("swc")
     split_path = cfg.get(f"{args.split}_jsonl_path")
     if not swc or not split_path:
@@ -92,8 +96,8 @@ def main():
         return tokenizer.decode(generated[0, prompt_length:], skip_special_tokens=True)
 
     predictions, metrics = evaluate_records(rows, swc, predict)
-    output_dir = adapter / f"eval-{args.split}"
-    output_dir.mkdir(exist_ok=True)
+    output_dir = args.output_dir or adapter / f"eval-{args.split}"
+    output_dir.mkdir(parents=True, exist_ok=True)
     with (output_dir / "predictions.jsonl").open("w", encoding="utf-8") as output:
         for row in predictions:
             result = {"swc": swc, "split": args.split, **row}
